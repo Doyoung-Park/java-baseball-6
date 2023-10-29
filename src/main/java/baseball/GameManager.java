@@ -9,10 +9,14 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class GameManager {
+    private final int MAX_RANDOM_NUMBER_SIZE = 3;
+    private final int MIN_NUMBER = 1;
+    private final int MAX_NUMBER = 9;
+
     public List<Integer> createRandomNumber() {
         List<Integer> newNumber = new ArrayList<>();
-        while (newNumber.size() < 3) {
-            int randomNumber = Randoms.pickNumberInRange(1, 9);
+        while (newNumber.size() < MAX_RANDOM_NUMBER_SIZE) {
+            int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
             if (!newNumber.contains(randomNumber)) {
                 newNumber.add(randomNumber);
             }
@@ -26,7 +30,7 @@ public class GameManager {
         List<Integer> inputList = Arrays.stream(input).map(h -> Integer.parseInt(h))
                 .toList();
 
-        if (inputList.size() != 3) throw new IllegalArgumentException();
+        if (inputList.size() != MAX_RANDOM_NUMBER_SIZE) throw new IllegalArgumentException();
 
         return inputList;
     }
