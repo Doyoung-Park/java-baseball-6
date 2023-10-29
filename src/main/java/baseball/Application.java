@@ -7,15 +7,14 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         final int NUMBER_FOR_GAME_DONE = 2;
+        Boolean isGameDone = false;
+        Boolean isCorrect = false;
+
+        GameManager gameManager = new GameManager();
 
         System.out.println("숫자 야구 게임을 시작합니다.");
-
-        Boolean isGameDone = false;
-
-        Boolean isCorrect = false;
         while (!isGameDone) {
 
-            GameManager gameManager = new GameManager();
             List<Integer> randomNumber = gameManager.createRandomNumber();
 
             while (!isCorrect) {
